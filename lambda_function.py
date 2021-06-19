@@ -15,6 +15,6 @@ def lambda_handler(event, context):
     
     return {
         'statusCode': 200,
-        'body': json.dumps('Hello from Serverless API '),
+        'body': json.dumps('Hello from Serverless API via github '),
         #'body': json.dumps(event)
     }
