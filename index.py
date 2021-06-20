@@ -15,6 +15,6 @@ def handler(event, context):
     
     return {
         'statusCode': 200,
-        'body': json.dumps('Your Hittime Entry is successfully written to Dynamo DB Version 2 '),
+        'body': json.dumps('Your Hittime Entry is successfully written to Dynamo DB Version 3 with Hassan '),
         #'body': json.dumps(event)
     }
