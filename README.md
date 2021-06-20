@@ -35,3 +35,5 @@ The project is build using serverless AWS Services.Which are mentioned below
 
 ### Lambda Function Code is attached in the index.py
 You can update it any way you want to server your purpose
+### Use Requirement.txt for any external dependcies which you need to add to your project
+You can update it any way you want to server your purpose
