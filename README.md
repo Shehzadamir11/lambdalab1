@@ -10,10 +10,10 @@ The project is build using serverless AWS Services.Which are mentioned below
 
 
 ## Manual to run the project
-1.Create the Infrastucture via AWS Cloud Formation template (template.yml file)
-2.Create Github repository 
-3.Link the Github with Code build and use buildspec.yml file for phases, you can use ubnutu standarad build availble in the configuration
-4.Apply the following policiy to you Build project IAM role for interacting with the Lambda function
+1. Create the Infrastucture via AWS Cloud Formation template (template.yml file)
+2. Create Github repository 
+3. Link the Github with Code build and use buildspec.yml file for phases, you can use ubnutu standarad build availble in the configuration
+4. Apply the following policiy to you Build project IAM role for interacting with the Lambda function
 ```javascript
 {
     "Effect": "Allow",
@@ -33,4 +33,5 @@ The project is build using serverless AWS Services.Which are mentioned below
 }
 ```
 
-###
+### Lambda Function Code is attached in the index.py
+You can update it any way you want to server your purpose
