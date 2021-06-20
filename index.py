@@ -1,10 +1,10 @@
 import json
 import boto3
 
-def lambda_handler(event, context):
+def handler(event, context):
     # TODO implement
     conn = boto3.resource('dynamodb')
-    table = conn.Table("datetime")
+    table = conn.Table("datetime1")
     
 
     table.put_item(
@@ -15,6 +15,6 @@ def lambda_handler(event, context):
     
     return {
         'statusCode': 200,
-        'body': json.dumps('Hello from Serverless API via github third try to see the difference and is it still working fine '),
+        'body': json.dumps('Your Hittime Entry is successfully written to Dynamo DB '),
         #'body': json.dumps(event)
     }

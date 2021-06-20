@@ -26,7 +26,7 @@ Resources:
     Properties:
       ApiKeyRequired: false
       AuthorizationType: NONE
-      HttpMethod: POST
+      HttpMethod: ANY
       Integration:
         ConnectionType: INTERNET
         Credentials: !GetAtt ApiGatewayIamRole.Arn
@@ -89,17 +89,29 @@ Resources:
     Properties:
       Code:
         ZipFile: |
+          import json
+          import boto3
+
           def handler(event, context):
-            response = {
-              'isBase64Encoded': False,
-              'statusCode': 200,
-              'headers': {},
-              'multiValueHeaders': {},
-              'body': 'Hello, World!'
-            }
-            return response
+              # TODO implement
+              conn = boto3.resource('dynamodb')
+              table = conn.Table("datetime1")
+              
+
+              table.put_item(
+                Item={
+                      'Hittime' : event['requestContext']['requestTime']
+                      }
+              )
+              
+              return {
+                  'statusCode': 200,
+                  'body': json.dumps('Hello from Serverless API via github and CFstack '),
+                  #'body': json.dumps(event)
+              }
+            
       Description: AWS Lambda function
-      FunctionName: 'lambda-function'
+      FunctionName: 'lambda-function1'
       Handler: index.handler
       MemorySize: 256
       Role: !GetAtt LambdaIamRole.Arn
@@ -118,12 +130,15 @@ Resources:
                 - 'lambda.amazonaws.com'
             Action:
               - 'sts:AssumeRole'
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
       Path: '/'
 
   EmployeeTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: Employee
+      TableName: datetime1
       AttributeDefinitions:
         - 
           AttributeName: Hittime
