@@ -1,4 +1,6 @@
 # Pollinate Assignement
+##Solution Diagram
+![GitHub Logo](/design.jpg)
 ## CICD Creation with API and Database Integration
 The project is build using serverless AWS Services.Which are mentioned below
 1. Code Build
